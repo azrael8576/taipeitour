@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_cathaybk.xml"
+    app:startDestination="@id/attractionListFragment">
+
+    <fragment
+        android:id="@+id/attractionListFragment"
+        android:name="com.alex.cathaybk_recruit_android.AttractionListFragment"
+        android:label="fragment_attraction_list"
+        tools:layout="@layout/fragment_attraction_list" >
+        <action
+            android:id="@+id/action_attractionListFragment_to_attractionDetailFragment"
+            app:destination="@id/attractionDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/attractionDetailFragment"
+        android:name="com.alex.cathaybk_recruit_android.AttractionDetailFragment"
+        android:label="fragment_attraction_detail"
+        tools:layout="@layout/fragment_attraction_detail" />
+</navigation>
