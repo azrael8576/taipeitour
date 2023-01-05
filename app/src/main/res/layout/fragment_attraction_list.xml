@@ -28,8 +28,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:titleTextAppearance="@style/Base.Widget.Design.Toolbar.TitleText"
-                app:layout_collapseMode="pin">
+                app:titleTextAppearance="@style/Base.Widget.Design.Toolbar.TitleText">
 
                 <Button
                     android:id="@+id/toolbar_overflow_menu_button"
@@ -45,9 +44,10 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/schedule_time_recyclerview"
+        android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="3"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>

@@ -4,8 +4,7 @@ import androidx.room.*
 import com.google.gson.annotations.SerializedName
 
 @TypeConverters(CategoryConverter::class, FileConverter::class, ImageConverter::class, LinkConverter::class)
-@Entity(tableName = "attractions",
-        indices = [Index(value = ["distric"], unique = false)])
+@Entity(tableName = "attractions")
 data class Attraction(
         @PrimaryKey
         @SerializedName("id")
@@ -13,7 +12,7 @@ data class Attraction(
         @SerializedName("name")
         val name: String,
         @SerializedName("name_zh")
-        val name_zh: String,
+        val name_zh: String?,
         @SerializedName("open_status")
         val open_status: Int,
         @SerializedName("introduction")
@@ -22,11 +21,12 @@ data class Attraction(
         val open_time: String,
         @SerializedName("zipcode")
         val zipcode: String,
-        @SerializedName("distric") // technically mutable but fine for a demo
-        @ColumnInfo(collate = ColumnInfo.NOCASE)
+        @SerializedName("distric")
         val distric: String,
         @SerializedName("address")
         val address: String,
+        @SerializedName("tel")
+        val tel: String,
         @SerializedName("fax")
         val fax: String,
         @SerializedName("email")
@@ -65,10 +65,9 @@ data class Attraction(
         val files: List<File>,
         @SerializedName("links")
         val links: List<Link>,
-) {
-    // to be consistent w/ changing backend order, we need to keep a data like this
-    var indexInResponse: Int = -1
-}
+        @ColumnInfo(name = "page")
+        val page: Int ,
+)
 
 data class Category(
         @SerializedName("id")
