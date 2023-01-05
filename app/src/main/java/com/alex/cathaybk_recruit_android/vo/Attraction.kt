@@ -6,7 +6,7 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "attraction",
+@Entity(tableName = "attractions",
         indices = [Index(value = ["distric"], unique = false)])
 data class Attraction(
         @PrimaryKey
