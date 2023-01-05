@@ -9,7 +9,7 @@ import com.alex.cathaybk_recruit_android.vo.DistricRemoteKey
 @Dao
 interface DistricRemoteKeyDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(keys: DistricRemoteKeyDao)
+    suspend fun insert(keys: DistricRemoteKey)
 
     @Query("SELECT * FROM remote_keys WHERE distric = :distric")
     suspend fun remoteKeyByAttraction(distric: String): DistricRemoteKey

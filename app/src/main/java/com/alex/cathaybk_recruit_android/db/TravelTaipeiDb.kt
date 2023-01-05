@@ -5,12 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.alex.cathaybk_recruit_android.vo.Attraction
+import com.alex.cathaybk_recruit_android.vo.DistricRemoteKey
 
 /**
  * Database schema used by the DbRedditPostRepository
  */
 @Database(
-    entities = [Attraction::class, DistricRemoteKeyDao::class],
+    entities = [Attraction::class, DistricRemoteKey::class],
     version = 1,
     exportSchema = false
 )
