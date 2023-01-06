@@ -41,7 +41,7 @@ class AttractionAdapter
 
         fun bind(attraction: Attraction?) {
             this.attraction = attraction
-            title.text = attraction?.name
+            title.text = attraction?.name?: "loading"
         }
 
         companion object {

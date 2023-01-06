@@ -4,6 +4,7 @@ import androidx.lifecycle.*
 import androidx.paging.cachedIn
 import com.alex.cathaybk_recruit_android.repository.AttractionRepository
 import com.alex.cathaybk_recruit_android.utilities.APP_DEFAULT_LANG
+import com.alex.cathaybk_recruit_android.utilities.SHARED_PREF_KEY_LANG
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flatMapLatest
 
@@ -11,21 +12,27 @@ class AttractionViewModel(
     private val repository: AttractionRepository,
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    companion object {
-        const val KEY_LANG = "lang"
-    }
 
     init {
-        if (!savedStateHandle.contains(KEY_LANG)) {
-            savedStateHandle.set(KEY_LANG, APP_DEFAULT_LANG)
+        if (!savedStateHandle.contains(SHARED_PREF_KEY_LANG)) {
+            savedStateHandle.set(SHARED_PREF_KEY_LANG, APP_DEFAULT_LANG)
         }
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)
-    val attractionList = savedStateHandle.getLiveData<String>(KEY_LANG)
+    val attractionList = savedStateHandle.getLiveData<String>(SHARED_PREF_KEY_LANG)
         .asFlow()
-        .flatMapLatest { repository.getPagingData(APP_DEFAULT_LANG) }
+        .flatMapLatest { repository.getPagingData(it) }
         // cachedIn() shares the paging state across multiple consumers of posts,
         // e.g. different generations of UI across rotation config change
         .cachedIn(viewModelScope)
+
+    fun showLang(lang: String) {
+        if (!shouldShowLang(lang)) return
+        savedStateHandle.set(SHARED_PREF_KEY_LANG, lang)
+    }
+
+    private fun shouldShowLang(lang: String): Boolean {
+        return savedStateHandle.get<String>(SHARED_PREF_KEY_LANG) != lang
+    }
 }

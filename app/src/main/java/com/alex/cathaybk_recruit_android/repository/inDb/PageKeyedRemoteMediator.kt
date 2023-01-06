@@ -67,7 +67,7 @@ class PageKeyedRemoteMediator(
                 return MediatorResult.Success(endOfPaginationReached = true)
             }
 
-            val response   = travelTaipeiService.getAttractions(
+            val response  = travelTaipeiService.getAttractions(
                 lang = langName,
                 categoryIds = null,
                 nlat = null,
