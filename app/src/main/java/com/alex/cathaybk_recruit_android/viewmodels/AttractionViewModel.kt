@@ -5,6 +5,7 @@ import androidx.paging.cachedIn
 import com.alex.cathaybk_recruit_android.repository.AttractionRepository
 import com.alex.cathaybk_recruit_android.utilities.APP_DEFAULT_LANG
 import com.alex.cathaybk_recruit_android.utilities.SHARED_PREF_KEY_LANG
+import com.alex.cathaybk_recruit_android.vo.Attraction
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flatMapLatest
 
@@ -17,6 +18,13 @@ class AttractionViewModel(
         if (!savedStateHandle.contains(SHARED_PREF_KEY_LANG)) {
             savedStateHandle.set(SHARED_PREF_KEY_LANG, APP_DEFAULT_LANG)
         }
+    }
+
+    private val _clickedAttraction = MutableLiveData<Attraction>()
+    val clickedAttraction : LiveData<Attraction> get() = _clickedAttraction
+
+    fun setClickedAttraction(attraction: Attraction) {
+        _clickedAttraction.value = attraction
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)

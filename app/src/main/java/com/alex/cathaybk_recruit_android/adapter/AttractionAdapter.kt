@@ -1,56 +1,66 @@
 package com.alex.cathaybk_recruit_android.adapter
 
-import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.alex.cathaybk_recruit_android.R
+import com.alex.cathaybk_recruit_android.AttractionListFragmentDirections
+import com.alex.cathaybk_recruit_android.OnClickAttractionListener
+import com.alex.cathaybk_recruit_android.databinding.AttractionItemBinding
 import com.alex.cathaybk_recruit_android.vo.Attraction
+
+fun actionToAttractionDetailFragment(attraction: Attraction?, onClickAttractionListener: OnClickAttractionListener): View.OnClickListener {
+    return View.OnClickListener { view ->
+        if (attraction == null) return@OnClickListener
+
+        onClickAttractionListener.setClickedAttraction(attraction)
+        val direction =
+            AttractionListFragmentDirections.actionAttractionListFragmentToAttractionDetailFragment()
+        view.findNavController().navigate(direction)
+    }
+}
 
 /**
  * A simple adapter implementation that shows travel.taipei attractions.
  */
-class AttractionAdapter
+class AttractionAdapter(onClickAttractionListener: OnClickAttractionListener)
     : PagingDataAdapter<Attraction, AttractionAdapter.AttractionViewHolder>(COMPARATOR) {
 
+    private var mOnClickAttractionListener: OnClickAttractionListener
+
+    init {
+        mOnClickAttractionListener = onClickAttractionListener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AttractionViewHolder {
-        return AttractionViewHolder.create(parent)
+        return AttractionViewHolder(
+            AttractionItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            ),
+            mOnClickAttractionListener
+        )
     }
 
     override fun onBindViewHolder(holder: AttractionViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
-    class AttractionViewHolder(view: View)
-        : RecyclerView.ViewHolder(view) {
-        private val title: TextView = view.findViewById(R.id.title)
+    class AttractionViewHolder(private val binding: AttractionItemBinding, private val onClickAttractionListener: OnClickAttractionListener)
+        : RecyclerView.ViewHolder(binding.root) {
         private var attraction : Attraction? = null
-        init {
-            view.setOnClickListener {
-                attraction?.url?.let { url ->
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                    view.context.startActivity(intent)
-                }
-            }
-        }
 
         fun bind(attraction: Attraction?) {
             this.attraction = attraction
-            title.text = attraction?.name?: "loading"
+
+            binding.title.text = attraction?.name?: "loading"
+            binding.root.setOnClickListener(actionToAttractionDetailFragment(attraction, onClickAttractionListener))
         }
 
-        companion object {
-            fun create(parent: ViewGroup): AttractionViewHolder {
-                val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.attraction_item, parent, false)
-                return AttractionViewHolder(view)
-            }
-        }
     }
 
     companion object {

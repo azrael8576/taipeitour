@@ -18,5 +18,21 @@
         android:id="@+id/attractionDetailFragment"
         android:name="com.alex.cathaybk_recruit_android.AttractionDetailFragment"
         android:label="fragment_attraction_detail"
-        tools:layout="@layout/fragment_attraction_detail" />
+        tools:layout="@layout/fragment_attraction_detail" >
+        <action
+            android:id="@+id/action_attractionDetailFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.alex.cathaybk_recruit_android.WebViewFragment"
+        android:label="fragment_web_view"
+        tools:layout="@layout/fragment_web_view">
+
+
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
 </navigation>

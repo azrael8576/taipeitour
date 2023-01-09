@@ -20,12 +20,13 @@ import com.alex.cathaybk_recruit_android.paging.asMergedLoadStates
 import com.alex.cathaybk_recruit_android.repository.AttractionRepository
 import com.alex.cathaybk_recruit_android.utilities.InjectorUtils
 import com.alex.cathaybk_recruit_android.viewmodels.AttractionViewModel
+import com.alex.cathaybk_recruit_android.vo.Attraction
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
 
-class AttractionListFragment : Fragment() {
+class AttractionListFragment : Fragment(), OnClickAttractionListener {
 
     private lateinit var selectedLangs: String
     private var selectedLangIndexs: Int = 0
@@ -63,8 +64,7 @@ class AttractionListFragment : Fragment() {
     }
 
     private fun initAdapter() {
-//        val glide = GlideApp.with(this)
-        adapter = AttractionAdapter()
+        adapter = AttractionAdapter(this@AttractionListFragment)
         binding.list.adapter = adapter.withLoadStateHeaderAndFooter(
             header = AttractionLoadStateAdapter(adapter),
             footer = AttractionLoadStateAdapter(adapter)
@@ -122,4 +122,12 @@ class AttractionListFragment : Fragment() {
     private fun initSwipeToRefresh() {
         binding.swipeRefresh.setOnRefreshListener { adapter.refresh() }
     }
+
+    override fun setClickedAttraction(attraction: Attraction) {
+        sharedViewModel.setClickedAttraction(attraction)
+    }
+}
+
+interface OnClickAttractionListener {
+    fun setClickedAttraction(attraction: Attraction)
 }
