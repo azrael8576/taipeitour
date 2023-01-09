@@ -60,3 +60,5 @@
 ##  畫面呈現
 
 #### SAMSUNG GALAXY Note 5
+![image](https://github.com/azrael8576/cathaybk-recruit-android/blob/main/demo1.gif)
+![image](https://github.com/azrael8576/cathaybk-recruit-android/blob/main/demo2.gif)
