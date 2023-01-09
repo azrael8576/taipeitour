@@ -63,15 +63,46 @@
             android:padding="@dimen/activity_horizontal_margin"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/text_attraction_name"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/cathaybk_gray_50_a600"
-                android:textSize="@dimen/base_headline"
-                android:visibility="gone"
-                tools:visibility="visible"
-                tools:text="龍山文創基地"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_attraction_name"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/cathaybk_gray_50_a600"
+                    android:textSize="@dimen/base_headline"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:layout_gravity="center_vertical"
+                    tools:text="龍山文創基地"/>
+
+                <ImageButton
+                    android:id="@+id/btn_facebook"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:scaleType="centerCrop"
+                    android:background="@android:color/transparent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/form_item_margin"
+                    app:tint="@color/cathaybk_green_700"
+                    app:srcCompat="@drawable/ic_facebook" />
+
+                <ImageButton
+                    android:id="@+id/btn_official_site"
+                    android:layout_width="@dimen/toolbar_font_icon"
+                    android:layout_height="@dimen/toolbar_font_icon"
+                    android:scaleType="centerCrop"
+                    android:background="@android:color/transparent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/form_item_margin"
+                    app:tint="@color/cathaybk_green_700"
+                    app:srcCompat="@drawable/ic_homepage" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/text_introduction"
@@ -117,28 +148,6 @@
                 tools:visibility="visible"
                 android:paddingBottom="@dimen/text_margin"
                 tools:text="最後編輯時間\n2023-01-08 05:02:04 +08:00"/>
-
-            <TextView
-                android:id="@+id/text_official_site"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:textColor="#57a0d4"
-                android:visibility="gone"
-                android:textSize="@dimen/base_caption_1"
-                tools:visibility="visible"
-                tools:text="https://www.xn--yes-897eo9j.taipei/"/>
-
-            <TextView
-                android:id="@+id/text_facebook"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:textColor="#57a0d4"
-                android:visibility="gone"
-                android:textSize="@dimen/base_caption_1"
-                tools:visibility="visible"
-                tools:text="https://www.facebook.com/mongaB2/"/>
 
         </LinearLayout>
 

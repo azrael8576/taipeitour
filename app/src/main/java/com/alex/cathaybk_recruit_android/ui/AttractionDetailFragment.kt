@@ -1,13 +1,16 @@
 package com.alex.cathaybk_recruit_android.ui
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.text.Html
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -15,17 +18,36 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.alex.cathaybk_recruit_android.GlideApp
 import com.alex.cathaybk_recruit_android.databinding.FragmentAttractionDetailBinding
+import com.alex.cathaybk_recruit_android.utilities.getFacebookPageURL
+import com.alex.cathaybk_recruit_android.utilities.isAppInstalled
 import com.alex.cathaybk_recruit_android.viewmodels.AttractionViewModel
-import com.alex.cathaybk_recruit_android.vo.Attraction
 
-fun actionToWebViewFragment(attraction: Attraction): View.OnClickListener {
+
+fun actionToWebViewFragment(url: String, name: String): View.OnClickListener {
     return View.OnClickListener { view ->
         val direction =
             AttractionDetailFragmentDirections.actionAttractionDetailFragmentToWebViewFragment(
-                attraction.url,
-                attraction.name
+                url,
+                name
             )
         view.findNavController().navigate(direction)
+    }
+}
+
+private fun actionToOpenFbApp(context: Context, fbUrl: String, name: String): View.OnClickListener {
+    return View.OnClickListener { view ->
+        if (isAppInstalled(context)) {
+            val facebookIntent = Intent(Intent.ACTION_VIEW)
+            val facebookUrl: String = getFacebookPageURL(context, fbUrl)
+            if (facebookUrl.contains("fb://")) {
+                facebookIntent.data = Uri.parse(facebookUrl)
+                startActivity(context, facebookIntent, null)
+            } else {
+                actionToWebViewFragment(fbUrl, name).onClick(view)
+            }
+        } else {
+            actionToWebViewFragment(fbUrl, name).onClick(view)
+        }
     }
 }
 
@@ -83,13 +105,11 @@ class AttractionDetailFragment : Fragment() {
             binding.textAddress.visibility = if (binding.textAddress.text.isNotEmpty()) View.VISIBLE else View.GONE
             binding.textModified.text = "Last Updated Time\n${it.modified}"
             binding.textModified.visibility = if (binding.textModified.text.isNotEmpty()) View.VISIBLE else View.GONE
-            binding.textOfficialSite.text = Html.fromHtml("<u>${it.official_site}</u>")
-            binding.textOfficialSite.visibility = if (binding.textOfficialSite.text.isNotEmpty()) View.VISIBLE else View.GONE
-            binding.textFacebook.text = Html.fromHtml("<u>${it.facebook}</u>")
-            binding.textFacebook.visibility = if (binding.textFacebook.text.isNotEmpty()) View.VISIBLE else View.GONE
+            binding.btnOfficialSite.visibility = if (it.official_site.isNotEmpty()) View.VISIBLE else View.GONE
+            binding.btnFacebook.visibility = if (it.facebook.isNotEmpty()) View.VISIBLE else View.GONE
 
-            binding.textOfficialSite.setOnClickListener(actionToWebViewFragment(it))
-            binding.textFacebook.setOnClickListener(actionToWebViewFragment(it))
+            binding.btnOfficialSite.setOnClickListener(actionToWebViewFragment(it.official_site, it.name))
+            binding.btnFacebook.setOnClickListener(actionToOpenFbApp(requireContext(), it.facebook, it.name))
         }
     }
 }

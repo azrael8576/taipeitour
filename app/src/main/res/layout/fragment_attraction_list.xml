@@ -37,7 +37,7 @@
                     android:layout_marginEnd="@dimen/base_horizontal_margin"
                     android:scaleType="centerCrop"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/icon_language"
+                    android:src="@drawable/ic_language"
                     android:layout_gravity="end"/>
 
             </androidx.appcompat.widget.Toolbar>
