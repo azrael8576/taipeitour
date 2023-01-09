@@ -1,9 +1,7 @@
-package com.alex.cathaybk_recruit_android
+package com.alex.cathaybk_recruit_android.ui
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.text.Html
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,14 +13,17 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.alex.cathaybk_recruit_android.GlideApp
 import com.alex.cathaybk_recruit_android.databinding.FragmentAttractionDetailBinding
 import com.alex.cathaybk_recruit_android.viewmodels.AttractionViewModel
+import com.alex.cathaybk_recruit_android.vo.Attraction
 
-fun actionToWebViewFragment(url: String): View.OnClickListener {
+fun actionToWebViewFragment(attraction: Attraction): View.OnClickListener {
     return View.OnClickListener { view ->
         val direction =
             AttractionDetailFragmentDirections.actionAttractionDetailFragmentToWebViewFragment(
-                url
+                attraction.url,
+                attraction.name
             )
         view.findNavController().navigate(direction)
     }
@@ -60,26 +61,35 @@ class AttractionDetailFragment : Fragment() {
         val glide = GlideApp.with(requireContext())
 
         sharedViewModel.clickedAttraction.observe(viewLifecycleOwner) {
-            binding.textAttractionName.text = it.name
-            binding.textOfficialSite.text = Html.fromHtml("<u>${it.official_site}</u>")
-            binding.textFacebook.text = Html.fromHtml("<u>${it.facebook}</u>")
-
-            binding.textOfficialSite.setOnClickListener(actionToWebViewFragment(binding.textOfficialSite.text.toString()))
-            binding.textFacebook.setOnClickListener(actionToWebViewFragment(binding.textFacebook.text.toString()))
 
             for (image in it.images) {
                 if (binding.imgBackdrop.isVisible){
                     break
                 } else if (image.src.startsWith("http") && image.ext.isNotEmpty()) {
-                    Log.e(TAG, "subscribeUi: ${image.src}", )
-
                     binding.imgBackdrop.visibility = View.VISIBLE
                     glide.load(image.src)
                         .centerCrop()
-                        .placeholder(R.drawable.ic_launcher_background)
                         .into(binding.imgBackdrop)
                 }
             }
+
+            binding.textAttractionName.text = it.name
+            binding.textAttractionName.visibility = if (binding.textAttractionName.text.isNotEmpty()) View.VISIBLE else View.GONE
+            binding.textIntroduction.text = it.introduction
+            binding.textIntroduction.visibility = if (binding.textIntroduction.text.isNotEmpty()) View.VISIBLE else View.GONE
+            binding.textOpenTime.text = it.open_time
+            binding.textOpenTime.visibility = if (binding.textOpenTime.text.isNotEmpty()) View.VISIBLE else View.GONE
+            binding.textAddress.text = "Address\n${it.address}"
+            binding.textAddress.visibility = if (binding.textAddress.text.isNotEmpty()) View.VISIBLE else View.GONE
+            binding.textModified.text = "Last Updated Time\n${it.modified}"
+            binding.textModified.visibility = if (binding.textModified.text.isNotEmpty()) View.VISIBLE else View.GONE
+            binding.textOfficialSite.text = Html.fromHtml("<u>${it.official_site}</u>")
+            binding.textOfficialSite.visibility = if (binding.textOfficialSite.text.isNotEmpty()) View.VISIBLE else View.GONE
+            binding.textFacebook.text = Html.fromHtml("<u>${it.facebook}</u>")
+            binding.textFacebook.visibility = if (binding.textFacebook.text.isNotEmpty()) View.VISIBLE else View.GONE
+
+            binding.textOfficialSite.setOnClickListener(actionToWebViewFragment(it))
+            binding.textFacebook.setOnClickListener(actionToWebViewFragment(it))
         }
     }
 }

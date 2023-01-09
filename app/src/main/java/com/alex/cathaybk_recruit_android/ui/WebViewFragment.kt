@@ -1,4 +1,4 @@
-package com.alex.cathaybk_recruit_android
+package com.alex.cathaybk_recruit_android.ui
 
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -32,10 +32,11 @@ class WebViewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding?.apply {
+        binding.apply {
             val navController = findNavController()
             val appBarConfiguration = AppBarConfiguration(navController.graph)
             toolbar.setupWithNavController(navController, appBarConfiguration)
+            toolbar.title = args.title
 
             if (args.url.isNotEmpty()) {
                 progressbar.max = 100
@@ -50,16 +51,16 @@ class WebViewFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
 
-        binding?.apply {
+        binding.apply {
             linearLayout.removeAllViews()
             webview.destroy()
         }
     }
 
-    fun getWebViewClient(): WebViewClient {
+    private fun getWebViewClient(): WebViewClient {
         return object : WebViewClient() {
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
@@ -86,7 +87,7 @@ class WebViewFragment : Fragment() {
         }
     }
 
-    fun getWebChromeClient(): WebChromeClient {
+    private fun getWebChromeClient(): WebChromeClient {
         return object : WebChromeClient() {
 
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
@@ -95,6 +96,5 @@ class WebViewFragment : Fragment() {
             }
         }
     }
-
 
 }

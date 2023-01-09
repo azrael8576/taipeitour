@@ -5,8 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AttractionDetailFragment"
-    android:background="@color/cathaybk_yellow_300"
+    tools:context=".ui.AttractionDetailFragment"
     android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -20,13 +19,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="@color/cathaybk_green_700"
             app:titleEnabled="false"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
             app:collapsedTitleGravity="center|bottom"
             app:expandedTitleGravity="center"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+            app:layout_scrollFlags="scroll|enterAlways|snap">
 
             <ImageView
                 android:id="@+id/img_backdrop"
@@ -61,13 +60,63 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="@dimen/activity_horizontal_margin"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/text_attraction_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"/>
+                android:textColor="@color/cathaybk_gray_50_a600"
+                android:textSize="@dimen/base_headline"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="龍山文創基地"/>
+
+            <TextView
+                android:id="@+id/text_introduction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:paddingTop="@dimen/text_margin"
+                android:visibility="gone"
+                android:textSize="@dimen/base_caption_1"
+                tools:visibility="visible"
+                tools:text="體驗式學習行文創基地"/>
+
+            <TextView
+                android:id="@+id/text_open_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:paddingTop="@dimen/text_margin"
+                android:visibility="gone"
+                android:textSize="@dimen/base_caption_1"
+                tools:visibility="visible"
+                tools:text="週二至週日 11:00 - 21:00"/>
+
+            <TextView
+                android:id="@+id/text_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:paddingTop="@dimen/text_margin"
+                android:visibility="gone"
+                android:textSize="@dimen/base_caption_1"
+                tools:visibility="visible"
+                tools:text="地址\n108 臺北市萬華區西園路一段145號B2 龍山寺地下街B2(龍山寺捷運站1號出口)"/>
+
+            <TextView
+                android:id="@+id/text_modified"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:paddingTop="@dimen/text_margin"
+                android:visibility="gone"
+                android:textSize="@dimen/base_caption_1"
+                tools:visibility="visible"
+                android:paddingBottom="@dimen/text_margin"
+                tools:text="最後編輯時間\n2023-01-08 05:02:04 +08:00"/>
 
             <TextView
                 android:id="@+id/text_official_site"
@@ -75,7 +124,10 @@
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:textColor="#57a0d4"
-                tools:text="TextView"/>
+                android:visibility="gone"
+                android:textSize="@dimen/base_caption_1"
+                tools:visibility="visible"
+                tools:text="https://www.xn--yes-897eo9j.taipei/"/>
 
             <TextView
                 android:id="@+id/text_facebook"
@@ -83,7 +135,10 @@
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:textColor="#57a0d4"
-                tools:text="TextView"/>
+                android:visibility="gone"
+                android:textSize="@dimen/base_caption_1"
+                tools:visibility="visible"
+                tools:text="https://www.facebook.com/mongaB2/"/>
 
         </LinearLayout>
 

@@ -1,4 +1,4 @@
-package com.android.example.paging.pagingwithnetwork.reddit.repository.inDb
+package com.alex.cathaybk_recruit_android.repository.inDb
 
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
@@ -21,7 +21,7 @@ class DbAttractionRepository(val db: TravelTaipeiDb, val travelTaipeiService: Tr
     override fun getPagingData(lang: String): Flow<PagingData<Attraction>> {
         return Pager(
             config = PagingConfig(
-                pageSize = Companion.PAGE_SIZE,
+                pageSize = PAGE_SIZE,
                 enablePlaceholders = true,
                 prefetchDistance = 3 * PAGE_SIZE,
                 initialLoadSize = 2 * PAGE_SIZE,

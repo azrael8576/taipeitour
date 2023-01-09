@@ -7,9 +7,10 @@ import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.alex.cathaybk_recruit_android.AttractionListFragmentDirections
-import com.alex.cathaybk_recruit_android.OnClickAttractionListener
+import com.alex.cathaybk_recruit_android.GlideRequests
+import com.alex.cathaybk_recruit_android.ui.OnClickAttractionListener
 import com.alex.cathaybk_recruit_android.databinding.AttractionItemBinding
+import com.alex.cathaybk_recruit_android.ui.AttractionListFragmentDirections
 import com.alex.cathaybk_recruit_android.vo.Attraction
 
 fun actionToAttractionDetailFragment(attraction: Attraction?, onClickAttractionListener: OnClickAttractionListener): View.OnClickListener {
@@ -26,7 +27,7 @@ fun actionToAttractionDetailFragment(attraction: Attraction?, onClickAttractionL
 /**
  * A simple adapter implementation that shows travel.taipei attractions.
  */
-class AttractionAdapter(onClickAttractionListener: OnClickAttractionListener)
+class AttractionAdapter(private val glide: GlideRequests, onClickAttractionListener: OnClickAttractionListener)
     : PagingDataAdapter<Attraction, AttractionAdapter.AttractionViewHolder>(COMPARATOR) {
 
     private var mOnClickAttractionListener: OnClickAttractionListener
@@ -42,6 +43,7 @@ class AttractionAdapter(onClickAttractionListener: OnClickAttractionListener)
                 parent,
                 false
             ),
+            glide,
             mOnClickAttractionListener
         )
     }
@@ -50,14 +52,36 @@ class AttractionAdapter(onClickAttractionListener: OnClickAttractionListener)
         holder.bind(getItem(position))
     }
 
-    class AttractionViewHolder(private val binding: AttractionItemBinding, private val onClickAttractionListener: OnClickAttractionListener)
+    class AttractionViewHolder(
+        private val binding: AttractionItemBinding,
+        private val glide: GlideRequests,
+        private val onClickAttractionListener: OnClickAttractionListener
+    )
         : RecyclerView.ViewHolder(binding.root) {
         private var attraction : Attraction? = null
 
         fun bind(attraction: Attraction?) {
             this.attraction = attraction
 
+            if (attraction?.images != null) {
+                for (image in attraction.images) {
+                    if (image.src.startsWith("http") && image.ext.isNotEmpty()) {
+                        binding.thumbnail.visibility = View.VISIBLE
+                        glide.load(image.src)
+                            .centerCrop()
+                            .into(binding.thumbnail)
+                        break
+                    }
+                }
+            }
+
             binding.title.text = attraction?.name?: "loading"
+            binding.title.visibility = if (binding.title.text.isNotEmpty()) View.VISIBLE else View.GONE
+            binding.subtitle.text = attraction?.introduction?: ""
+            binding.subtitle.visibility = if (binding.subtitle.text.isNotEmpty()) View.VISIBLE else View.GONE
+            binding.openTime.text = attraction?.open_time?: ""
+            binding.openTime.visibility = if (binding.openTime.text.isNotEmpty()) View.VISIBLE else View.GONE
+
             binding.root.setOnClickListener(actionToAttractionDetailFragment(attraction, onClickAttractionListener))
         }
 

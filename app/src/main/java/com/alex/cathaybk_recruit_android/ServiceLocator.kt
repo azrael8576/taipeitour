@@ -1,13 +1,11 @@
 package com.alex.cathaybk_recruit_android.api
 
 import android.app.Application
-import android.content.ContentValues.TAG
 import android.content.Context
-import android.util.Log
 import androidx.annotation.VisibleForTesting
 import com.alex.cathaybk_recruit_android.db.TravelTaipeiDb
 import com.alex.cathaybk_recruit_android.repository.AttractionRepository
-import com.android.example.paging.pagingwithnetwork.reddit.repository.inDb.DbAttractionRepository
+import com.alex.cathaybk_recruit_android.repository.inDb.DbAttractionRepository
 
 /**
  * Super simplified service locator implementation to allow us to replace default implementations

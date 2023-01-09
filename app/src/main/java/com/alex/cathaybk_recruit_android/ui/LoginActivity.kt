@@ -1,8 +1,9 @@
-package com.alex.cathaybk_recruit_android
+package com.alex.cathaybk_recruit_android.ui
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.alex.cathaybk_recruit_android.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

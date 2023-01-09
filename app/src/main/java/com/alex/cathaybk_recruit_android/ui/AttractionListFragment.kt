@@ -1,4 +1,4 @@
-package com.alex.cathaybk_recruit_android
+package com.alex.cathaybk_recruit_android.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,10 +8,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import androidx.paging.LoadState
+import com.alex.cathaybk_recruit_android.GlideApp
+import com.alex.cathaybk_recruit_android.R
 import com.alex.cathaybk_recruit_android.adapter.AttractionAdapter
 import com.alex.cathaybk_recruit_android.adapter.AttractionLoadStateAdapter
 import com.alex.cathaybk_recruit_android.api.ServiceLocator
@@ -33,8 +36,6 @@ class AttractionListFragment : Fragment(), OnClickAttractionListener {
 
     private lateinit var adapter: AttractionAdapter
     private lateinit var binding: FragmentAttractionListBinding
-    private val langs = arrayOf("zh-tw", "zh-cn", "en", "ja", "ko",
-        "es", "id", "th", "vi")
 
     private val sharedViewModel: AttractionViewModel by activityViewModels{
         val repoType = AttractionRepository.Type.values()[AttractionRepository.Type.DB.ordinal]
@@ -64,7 +65,8 @@ class AttractionListFragment : Fragment(), OnClickAttractionListener {
     }
 
     private fun initAdapter() {
-        adapter = AttractionAdapter(this@AttractionListFragment)
+        val glide = GlideApp.with(this)
+        adapter = AttractionAdapter(glide, this@AttractionListFragment)
         binding.list.adapter = adapter.withLoadStateHeaderAndFooter(
             header = AttractionLoadStateAdapter(adapter),
             footer = AttractionLoadStateAdapter(adapter)
@@ -102,21 +104,29 @@ class AttractionListFragment : Fragment(), OnClickAttractionListener {
         val appBarConfiguration = AppBarConfiguration(navController.graph)
 
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
-        binding.toolbarOverflowMenuButton.setOnClickListener(View.OnClickListener {
+        binding.toolbar.setTitleTextColor(resources.getColor(R.color.cathaybk_gray_50_a600))
+        binding.toolbarTranslateButton.setColorFilter(resources.getColor(R.color.cathaybk_gray_50_a600))
+        binding.toolbarTranslateButton.setOnClickListener(getLangDialog())
+    }
+
+     private fun getLangDialog(): View.OnClickListener {
+        return View.OnClickListener { view ->
+            val langs = resources.getStringArray(R.array.langs)
             selectedLangs = langs[selectedLangIndexs]
-            MaterialAlertDialogBuilder(requireContext())
+            MaterialAlertDialogBuilder(requireContext(), R.style.MaterialThemeDialog)
                 .setTitle("List of Lang")
                 .setSingleChoiceItems(langs, selectedLangIndexs) { dialog_, which ->
                     binding.list.scrollToPosition(0)
                     selectedLangIndexs = which
                     selectedLangs = langs[which]
-                    Toast.makeText(requireContext(), "$selectedLangs Selected", Toast.LENGTH_SHORT)
+                    Toast.makeText(requireContext(), "Selected $selectedLangs", Toast.LENGTH_SHORT)
                         .show()
                     sharedViewModel.showLang(selectedLangs)
                     dialog_.dismiss()
                 }
+                .setBackground(resources.getDrawable(R.drawable.selector_lang_dialog))
                 .show()
-        })
+        }
     }
 
     private fun initSwipeToRefresh() {

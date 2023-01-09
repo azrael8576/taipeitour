@@ -1,4 +1,4 @@
-package com.android.example.paging.pagingwithnetwork.reddit.repository.inDb
+package com.alex.cathaybk_recruit_android.repository.inDb
 
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType

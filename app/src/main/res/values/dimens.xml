@@ -1,0 +1,151 @@
+<resources>
+
+    <!--base字型大小-->
+    <dimen name="base_headline">17dp</dimen>
+    <dimen name="base_headline_auto">17sp</dimen>
+    <dimen name="base_body">17dp</dimen>
+    <dimen name="base_body_auto">17sp</dimen>
+    <dimen name="base_callout">16dp</dimen>
+    <dimen name="base_callout_auto">16sp</dimen>
+    <dimen name="base_subhead">15dp</dimen>
+    <dimen name="base_subhead_auto">15sp</dimen>
+    <dimen name="customize_subhead">14dp</dimen>
+    <dimen name="base_footnote">13dp</dimen>
+    <dimen name="base_footnote_auto">13sp</dimen>
+    <dimen name="base_caption_1">12dp</dimen>
+    <dimen name="base_caption_1_auto">12sp</dimen>
+    <dimen name="base_caption_2">11dp</dimen>
+    <dimen name="base_caption_2_auto">11sp</dimen>
+
+    <!--base通用邊距-->
+    <dimen name="base_horizontal_margin">8dp</dimen><!--水平間距-->
+    <dimen name="base_vertical_margin">8dp</dimen><!--垂直間距-->
+    <dimen name="base_line_spacing">5dp</dimen><!--行距-->
+    <dimen name="base_list_spacing">10dp</dimen><!--列表區塊間距-->
+    <dimen name="base_item_margin_s">5dp</dimen><!--物件間距-->
+    <dimen name="base_item_margin_m">8dp</dimen><!--物件間距-->
+    <dimen name="base_item_margin_l">10dp</dimen><!--物件間距-->
+
+    <!--明細欄位-->
+    <dimen name="detail_horizontal_margin">8dp</dimen><!--水平間距-->
+    <dimen name="detail_vertical_margin">10dp</dimen><!--垂直間距-->
+    <dimen name="detail_item_margin">5dp</dimen><!--物件間距-->
+
+    <!--表單-->
+    <dimen name="form_title_vertical_margin">10dp</dimen><!--垂直間距-->
+    <dimen name="form_content_horizontal_margin">8dp</dimen><!--水平間距-->
+    <dimen name="form_content_vertical_margin">8dp</dimen><!--垂直間距-->
+    <dimen name="form_item_margin">5dp</dimen><!--物件間距-->
+    <dimen name="form_detail_title_width">65dp</dimen><!--明細標題寬度-->
+
+    <!--圖示長寬-->
+    <dimen name="base_img_size_l">100dp</dimen>
+
+    <!--標籤按鈕-->
+    <dimen name="tag_horizontal_margin">8dp</dimen><!--標籤水平間距-->
+    <dimen name="tag_vertical_margin">5dp</dimen><!--標籤垂直間距-->
+    <dimen name="tag_round_rect_radius">4dp</dimen><!--標籤圓角矩形半徑-->
+
+    <!--全版按鈕-->
+    <dimen name="btn_horizontal_margin">8dp</dimen><!--水平間距-->
+    <dimen name="btn_vertical_margin">8dp</dimen><!--垂直間距-->
+    <dimen name="btn_border_width">1dp</dimen><!--線段寬度-->
+    <dimen name="btn_height">44dp</dimen><!--按鈕高度-->
+
+    <!--方形按鈕-->
+    <dimen name="btn_square_margin">6dp</dimen><!--水平垂直間距-->
+
+    <!--列表底部padding 單位為px 在程式內會轉換-->
+    <dimen name="list_padding_for_floating_btn_0">0px</dimen><!--無浮動按鈕-->
+    <dimen name="list_padding_for_floating_btn_1">114px</dimen><!--一個浮動按鈕-->
+    <dimen name="list_padding_for_floating_btn_1s">104px</dimen><!--一個浮動按鈕+列表物件有陰影-->
+    <dimen name="list_padding_for_floating_btn_2">184px</dimen><!--兩個浮動按鈕-->
+    <dimen name="list_padding_for_floating_btn_2s">174px</dimen><!--兩個浮動按鈕+列表物件有陰影-->
+    <dimen name="list_padding_for_floating_btn_3">254px</dimen><!--三個浮動按鈕-->
+    <dimen name="list_padding_for_floating_btn_3s">244px</dimen><!--三個浮動按鈕+列表物件有陰影-->
+
+    <!--toolbar高度-->
+    <dimen name="toolbar_height">44dp</dimen>
+
+    <!--分割線以上為Guildline-->
+
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_short_margin">8dp</dimen>
+    <dimen name="activity_less_short_margin">9dp</dimen>
+    <dimen name="activity_toolbar_item_space">4dp</dimen>
+    <!--<dimen name="fab_margin">16dp</dimen>-->
+    <dimen name="text_margin">16dp</dimen>
+    <!--<dimen name="option_item_text">16dp</dimen>-->
+
+    <!--icon size-->
+    <dimen name="default_ui_icon">24dp</dimen>
+    <dimen name="toolbar_item_icon">24dp</dimen>
+    <dimen name="pref_item_icon">32dp</dimen>
+    <dimen name="nav_item_icon">48dp</dimen>
+
+
+    <dimen name="news_thumb_size">100dp</dimen>
+    <dimen name="button_margin_right">10dp</dimen>
+
+
+    <!--text size-->
+    <dimen name="default_ui_text">18sp</dimen>
+    <dimen name="default_content_text">16sp</dimen>
+    <dimen name="toolbar_title_text">17sp</dimen>
+    <dimen name="nav_item_text">22sp</dimen>
+    <dimen name="tab_item_text">16sp</dimen>
+    <!--<dimen name="news_comment_text">18sp</dimen>-->
+    <dimen name="news_content_comment_padding">15dp</dimen>
+    <dimen name="toolbar_font_icon">30dp</dimen>
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="toolbar_title_size">17dp</dimen>
+    <dimen name="house_detail_key_size">14.5dp</dimen>
+    <dimen name="house_detail_value_size">18.5dp</dimen>
+    <dimen name="fab_button_size">48dp</dimen>
+    <dimen name="toolbar_icon_size">28dp</dimen>
+    <dimen name="sidebar_item_icon">15dp</dimen>
+    <dimen name="sidebar_item_text">18dp</dimen>
+    <dimen name="sidebar_item_height">60dp</dimen>
+    <dimen name="obj_title_size">23.8dp</dimen>
+
+
+    <dimen name="login_edit_field_icon">23dp</dimen>
+
+    <!--main tab-->
+    <dimen name="main_tab_icon">24dp</dimen>
+    <dimen name="main_tab_height">56dp</dimen>
+    <dimen name="main_tab_text">12dp</dimen>
+
+    <dimen name="home_icon">45dp</dimen>
+    <dimen name="frame_margin">13.2dp</dimen>
+    <dimen name="frame_margin_big">26.4dp</dimen>
+
+    <dimen name="building_text_size">47.5dp</dimen>
+
+
+    <!--search ui-->
+    <dimen name="search_item_row_height">44dp</dimen>
+    <dimen name="search_item_title">18dp</dimen>
+    <dimen name="search_item_icon">24dp</dimen>
+    <dimen name="search_item_content">14dp</dimen>
+    <dimen name="search_item_tree_title">14dp</dimen>
+    <dimen name="edittext_deault_padding">5dp</dimen>
+
+    <dimen name="default_button_height">44dp</dimen>
+    <dimen name="default_button_text">18dp</dimen>
+    <dimen name="search_case_tab_height">32dp</dimen>
+    <dimen name="search_case_tab_text">14dp</dimen>
+    <dimen name="subcribe_list_item_text">18dp</dimen>
+    <dimen name="watermark_item_text">20dp</dimen>
+    <dimen name="customer_ui_group_bar_padding">13dp</dimen>
+
+    <dimen name="cust_task_item_tex">17dp</dimen>
+    <dimen name="schedule_select_btn_text">12dp</dimen>
+
+</resources>

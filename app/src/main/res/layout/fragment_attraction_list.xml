@@ -5,8 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AttractionListFragment"
-    android:background="@color/cathaybk_yellow_300"
+    tools:context=".ui.AttractionListFragment"
     android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -31,11 +30,14 @@
                 android:layout_height="?attr/actionBarSize"
                 app:titleTextAppearance="@style/Base.Widget.Design.Toolbar.TitleText">
 
-                <Button
-                    android:id="@+id/toolbar_overflow_menu_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Button"
+                <ImageButton
+                    android:id="@+id/toolbar_translate_button"
+                    android:layout_width="@dimen/toolbar_font_icon"
+                    android:layout_height="@dimen/toolbar_font_icon"
+                    android:layout_marginEnd="@dimen/base_horizontal_margin"
+                    android:scaleType="centerCrop"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/icon_language"
                     android:layout_gravity="end"/>
 
             </androidx.appcompat.widget.Toolbar>
@@ -47,6 +49,7 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="8dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -55,6 +58,7 @@
             android:layout_height="match_parent"
             android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/attraction_item"
             tools:itemCount="3"/>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
