@@ -8,9 +8,9 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.alex.cathaybk_recruit_android.GlideRequests
-import com.alex.cathaybk_recruit_android.ui.OnClickAttractionListener
 import com.alex.cathaybk_recruit_android.databinding.AttractionItemBinding
 import com.alex.cathaybk_recruit_android.ui.AttractionListFragmentDirections
+import com.alex.cathaybk_recruit_android.ui.OnClickAttractionListener
 import com.alex.cathaybk_recruit_android.vo.Attraction
 
 fun actionToAttractionDetailFragment(attraction: Attraction?, onClickAttractionListener: OnClickAttractionListener): View.OnClickListener {
@@ -27,8 +27,8 @@ fun actionToAttractionDetailFragment(attraction: Attraction?, onClickAttractionL
 /**
  * A simple adapter implementation that shows travel.taipei attractions.
  */
-class AttractionAdapter(private val glide: GlideRequests, onClickAttractionListener: OnClickAttractionListener)
-    : PagingDataAdapter<Attraction, AttractionAdapter.AttractionViewHolder>(COMPARATOR) {
+class AttractionAdapter(private val glide: GlideRequests, onClickAttractionListener: OnClickAttractionListener) :
+    PagingDataAdapter<Attraction, AttractionAdapter.AttractionViewHolder>(COMPARATOR) {
 
     private var mOnClickAttractionListener: OnClickAttractionListener
 
@@ -56,9 +56,9 @@ class AttractionAdapter(private val glide: GlideRequests, onClickAttractionListe
         private val binding: AttractionItemBinding,
         private val glide: GlideRequests,
         private val onClickAttractionListener: OnClickAttractionListener
-    )
-        : RecyclerView.ViewHolder(binding.root) {
-        private var attraction : Attraction? = null
+    ) :
+        RecyclerView.ViewHolder(binding.root) {
+        private var attraction: Attraction? = null
 
         fun bind(attraction: Attraction?) {
             this.attraction = attraction
@@ -75,25 +75,24 @@ class AttractionAdapter(private val glide: GlideRequests, onClickAttractionListe
                 }
             }
 
-            binding.title.text = attraction?.name?: "loading"
+            binding.title.text = attraction?.name ?: "loading"
             binding.title.visibility = if (binding.title.text.isNotEmpty()) View.VISIBLE else View.GONE
-            binding.subtitle.text = attraction?.introduction?: ""
+            binding.subtitle.text = attraction?.introduction ?: ""
             binding.subtitle.visibility = if (binding.subtitle.text.isNotEmpty()) View.VISIBLE else View.GONE
-            binding.openTime.text = attraction?.open_time?: ""
+            binding.openTime.text = attraction?.open_time ?: ""
             binding.openTime.visibility = if (binding.openTime.text.isNotEmpty()) View.VISIBLE else View.GONE
 
             binding.root.setOnClickListener(actionToAttractionDetailFragment(attraction, onClickAttractionListener))
         }
-
     }
 
     companion object {
         val COMPARATOR = object : DiffUtil.ItemCallback<Attraction>() {
             override fun areContentsTheSame(oldItem: Attraction, newItem: Attraction): Boolean =
-                    oldItem == newItem
+                oldItem == newItem
 
             override fun areItemsTheSame(oldItem: Attraction, newItem: Attraction): Boolean =
-                    oldItem.id == newItem.id
+                oldItem.id == newItem.id
         }
     }
 }

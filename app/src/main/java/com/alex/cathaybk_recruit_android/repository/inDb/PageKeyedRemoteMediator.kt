@@ -2,7 +2,6 @@ package com.alex.cathaybk_recruit_android.repository.inDb
 
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
-import androidx.paging.LoadType.*
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
@@ -33,11 +32,11 @@ class PageKeyedRemoteMediator(
         try {
             // Get the closest item from PagingState that we want to load data around.
             val pageKey = when (loadType) {
-                REFRESH -> {
+                LoadType.REFRESH -> {
                     val remoteKeys = getRemoteKeyClosestToCurrentPosition(state)
                     remoteKeys?.nextPageKey?.minus(1) ?: 1
                 }
-                PREPEND -> {
+                LoadType.PREPEND -> {
                     val remoteKeys = getRemoteKeyForFirstItem(state)
                     val prevPage = remoteKeys?.prevPageKey
                         ?: return MediatorResult.Success(
@@ -45,7 +44,7 @@ class PageKeyedRemoteMediator(
                         )
                     prevPage
                 }
-                APPEND -> {
+                LoadType.APPEND -> {
 
                     // Query DB for LangRemoteKeyDao for the lang.
                     // LangRemoteKey is a wrapper object we use to keep track of page keys we

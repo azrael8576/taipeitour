@@ -22,7 +22,6 @@ import com.alex.cathaybk_recruit_android.utilities.getFacebookPageURL
 import com.alex.cathaybk_recruit_android.utilities.isAppInstalled
 import com.alex.cathaybk_recruit_android.viewmodels.AttractionViewModel
 
-
 fun actionToWebViewFragment(url: String, name: String): View.OnClickListener {
     return View.OnClickListener { view ->
         val direction =
@@ -57,7 +56,8 @@ class AttractionDetailFragment : Fragment() {
     private val sharedViewModel: AttractionViewModel by activityViewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val fragmentBinding = FragmentAttractionDetailBinding.inflate(inflater, container, false)
@@ -83,9 +83,8 @@ class AttractionDetailFragment : Fragment() {
         val glide = GlideApp.with(requireContext())
 
         sharedViewModel.clickedAttraction.observe(viewLifecycleOwner) {
-
             for (image in it.images) {
-                if (binding.imgBackdrop.isVisible){
+                if (binding.imgBackdrop.isVisible) {
                     break
                 } else if (image.src.startsWith("http") && image.ext.isNotEmpty()) {
                     binding.imgBackdrop.visibility = View.VISIBLE

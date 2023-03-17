@@ -1,6 +1,11 @@
 package com.alex.cathaybk_recruit_android.viewmodels
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asFlow
+import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import com.alex.cathaybk_recruit_android.repository.AttractionRepository
 import com.alex.cathaybk_recruit_android.utilities.APP_DEFAULT_LANG
@@ -21,7 +26,7 @@ class AttractionViewModel(
     }
 
     private val _clickedAttraction = MutableLiveData<Attraction>()
-    val clickedAttraction : LiveData<Attraction> get() = _clickedAttraction
+    val clickedAttraction: LiveData<Attraction> get() = _clickedAttraction
 
     fun setClickedAttraction(attraction: Attraction) {
         _clickedAttraction.value = attraction

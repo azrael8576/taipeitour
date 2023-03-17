@@ -19,8 +19,9 @@ interface ServiceLocator {
             synchronized(LOCK) {
                 if (instance == null) {
                     instance = DefaultServiceLocator(
-                            app = context.applicationContext as Application,
-                            useInMemoryDb = false)
+                        app = context.applicationContext as Application,
+                        useInMemoryDb = false
+                    )
                 }
                 return instance!!
             }
@@ -54,7 +55,7 @@ open class DefaultServiceLocator(val app: Application, val useInMemoryDb: Boolea
 
     override fun getRepository(type: AttractionRepository.Type): AttractionRepository {
         return when (type) {
-            //TODO IN_MEMORY_BY_ITEM, IN_MEMORY_BY_PAGE Repository
+            // TODO IN_MEMORY_BY_ITEM, IN_MEMORY_BY_PAGE Repository
             AttractionRepository.Type.IN_MEMORY_BY_ITEM -> DbAttractionRepository(
                 db = db,
                 travelTaipeiService = getTravelTaipeiService()

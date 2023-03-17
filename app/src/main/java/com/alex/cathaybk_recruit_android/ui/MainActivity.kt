@@ -1,7 +1,7 @@
 package com.alex.cathaybk_recruit_android.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.alex.cathaybk_recruit_android.R
 
 /**

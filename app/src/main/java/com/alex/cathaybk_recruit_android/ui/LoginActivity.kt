@@ -10,6 +10,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -18,10 +19,14 @@ class LoginActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         CoroutineScope(Dispatchers.Main).launch {
-            //模擬登入連線時間
-            delay(3000)
+            // 模擬登入連線時間
+            delay(LOGIN_TIME)
             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
             finish()
         }
+    }
+
+    companion object {
+        const val LOGIN_TIME = 3000L
     }
 }

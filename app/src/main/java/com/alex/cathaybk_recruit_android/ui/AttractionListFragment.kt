@@ -37,7 +37,7 @@ class AttractionListFragment : Fragment(), OnClickAttractionListener {
     private lateinit var adapter: AttractionAdapter
     private lateinit var binding: FragmentAttractionListBinding
 
-    private val sharedViewModel: AttractionViewModel by activityViewModels{
+    private val sharedViewModel: AttractionViewModel by activityViewModels {
         val repoType = AttractionRepository.Type.values()[AttractionRepository.Type.DB.ordinal]
         val repo = ServiceLocator.instance(requireContext())
             .getRepository(repoType)
@@ -46,7 +46,8 @@ class AttractionListFragment : Fragment(), OnClickAttractionListener {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val fragmentBinding = FragmentAttractionListBinding.inflate(inflater, container, false)
@@ -109,7 +110,7 @@ class AttractionListFragment : Fragment(), OnClickAttractionListener {
         binding.toolbarTranslateButton.setOnClickListener(getLangDialog())
     }
 
-     private fun getLangDialog(): View.OnClickListener {
+    private fun getLangDialog(): View.OnClickListener {
         return View.OnClickListener { view ->
             val langs = resources.getStringArray(R.array.langs)
             selectedLangs = langs[selectedLangIndexs]

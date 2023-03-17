@@ -2,23 +2,23 @@ package com.alex.cathaybk_recruit_android.paging
 
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
-import androidx.paging.LoadState.NotLoading
 import androidx.paging.LoadState.Loading
+import androidx.paging.LoadState.NotLoading
 import androidx.paging.LoadStates
+import androidx.paging.LoadType
+import androidx.paging.LoadType.REFRESH
+import androidx.paging.PagingDataAdapter
+import androidx.paging.PagingSource
 import androidx.paging.PagingSource.LoadResult.Error
+import androidx.paging.RemoteMediator
+import com.alex.cathaybk_recruit_android.paging.MergedState.NOT_LOADING
+import com.alex.cathaybk_recruit_android.paging.MergedState.REMOTE_ERROR
+import com.alex.cathaybk_recruit_android.paging.MergedState.REMOTE_STARTED
+import com.alex.cathaybk_recruit_android.paging.MergedState.SOURCE_ERROR
+import com.alex.cathaybk_recruit_android.paging.MergedState.SOURCE_LOADING
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.scan
-import androidx.paging.PagingDataAdapter
-import androidx.paging.RemoteMediator
-import androidx.paging.PagingSource
-import androidx.paging.LoadType.REFRESH
-import androidx.paging.LoadType
-import com.alex.cathaybk_recruit_android.paging.MergedState.NOT_LOADING
-import com.alex.cathaybk_recruit_android.paging.MergedState.REMOTE_STARTED
-import com.alex.cathaybk_recruit_android.paging.MergedState.REMOTE_ERROR
-import com.alex.cathaybk_recruit_android.paging.MergedState.SOURCE_ERROR
-import com.alex.cathaybk_recruit_android.paging.MergedState.SOURCE_LOADING
 
 /**
  * Converts the raw [CombinedLoadStates] [Flow] from [PagingDataAdapter.loadStateFlow] into a new

@@ -21,7 +21,8 @@ class WebViewFragment : Fragment() {
     private val args: WebViewFragmentArgs by navArgs()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val fragmentBinding = FragmentWebViewBinding.inflate(inflater, container, false)
@@ -64,12 +65,12 @@ class WebViewFragment : Fragment() {
         return object : WebViewClient() {
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
-                binding.progressbar.visibility = View.VISIBLE;
+                binding.progressbar.visibility = View.VISIBLE
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                binding.progressbar.visibility = View.GONE;
+                binding.progressbar.visibility = View.GONE
             }
 
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
@@ -92,7 +93,7 @@ class WebViewFragment : Fragment() {
 
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
                 super.onProgressChanged(view, newProgress)
-                binding.progressbar.progress = newProgress;
+                binding.progressbar.progress = newProgress
             }
         }
     }

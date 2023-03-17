@@ -4,6 +4,7 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import androidx.paging.PagingSource
 import com.alex.cathaybk_recruit_android.api.TravelTaipeiService
 import com.alex.cathaybk_recruit_android.db.TravelTaipeiDb
 import com.alex.cathaybk_recruit_android.repository.AttractionRepository
@@ -23,8 +24,8 @@ class DbAttractionRepository(val db: TravelTaipeiDb, val travelTaipeiService: Tr
             config = PagingConfig(
                 pageSize = PAGE_SIZE,
                 enablePlaceholders = true,
-                prefetchDistance = 3 * PAGE_SIZE,
-                initialLoadSize = 2 * PAGE_SIZE,
+                prefetchDistance = TIMES_PREFETCH * PAGE_SIZE,
+                initialLoadSize = TIMES_INIT_LOAD * PAGE_SIZE,
             ),
             remoteMediator = PageKeyedRemoteMediator(db, travelTaipeiService, lang)
         ) {
@@ -34,5 +35,7 @@ class DbAttractionRepository(val db: TravelTaipeiDb, val travelTaipeiService: Tr
 
     companion object {
         const val PAGE_SIZE = 10
+        const val TIMES_PREFETCH = 3
+        const val TIMES_INIT_LOAD = 2
     }
 }
