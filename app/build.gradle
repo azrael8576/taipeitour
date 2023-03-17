@@ -1,11 +1,20 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'io.gitlab.arturbosch.detekt'
 }
 
 apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 apply plugin: 'org.jetbrains.kotlin.android.extensions'
+
+
+/** build 前先執行 detekt.task  **/
+afterEvaluate{
+//    preBuild.dependsOn('detekt')
+//    check.dependsOn 'detekt'
+//    println("preBuild.dependsOn tasks.findByName(\"detekt\")")
+}
 
 android {
     namespace 'com.alex.cathaybk_recruit_android'
