@@ -4,18 +4,10 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-<<<<<<< HEAD:app/src/main/java/com/wei/traveltaipei/repository/inDb/DbAttractionRepository.kt
 import com.wei.traveltaipei.api.TravelTaipeiService
 import com.wei.traveltaipei.db.TravelTaipeiDb
 import com.wei.traveltaipei.repository.AttractionRepository
 import com.wei.traveltaipei.vo.Attraction
-=======
-import androidx.paging.PagingSource
-import com.alex.cathaybk_recruit_android.api.TravelTaipeiService
-import com.alex.cathaybk_recruit_android.db.TravelTaipeiDb
-import com.alex.cathaybk_recruit_android.repository.AttractionRepository
-import com.alex.cathaybk_recruit_android.vo.Attraction
->>>>>>> origin/develop:app/src/main/java/com/alex/cathaybk_recruit_android/repository/inDb/DbAttractionRepository.kt
 import kotlinx.coroutines.flow.Flow
 
 /**

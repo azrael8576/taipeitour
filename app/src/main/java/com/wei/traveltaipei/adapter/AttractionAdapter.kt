@@ -7,19 +7,11 @@ import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-<<<<<<< HEAD:app/src/main/java/com/wei/traveltaipei/adapter/AttractionAdapter.kt
 import com.wei.traveltaipei.GlideRequests
 import com.wei.traveltaipei.databinding.AttractionItemBinding
 import com.wei.traveltaipei.ui.AttractionListFragmentDirections
 import com.wei.traveltaipei.ui.OnClickAttractionListener
 import com.wei.traveltaipei.vo.Attraction
-=======
-import com.alex.cathaybk_recruit_android.GlideRequests
-import com.alex.cathaybk_recruit_android.databinding.AttractionItemBinding
-import com.alex.cathaybk_recruit_android.ui.AttractionListFragmentDirections
-import com.alex.cathaybk_recruit_android.ui.OnClickAttractionListener
-import com.alex.cathaybk_recruit_android.vo.Attraction
->>>>>>> origin/develop:app/src/main/java/com/alex/cathaybk_recruit_android/adapter/AttractionAdapter.kt
 
 fun actionToAttractionDetailFragment(attraction: Attraction?, onClickAttractionListener: OnClickAttractionListener): View.OnClickListener {
     return View.OnClickListener { view ->

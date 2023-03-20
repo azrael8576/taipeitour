@@ -16,19 +16,11 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
-<<<<<<< HEAD:app/src/main/java/com/wei/traveltaipei/ui/AttractionDetailFragment.kt
 import com.wei.traveltaipei.GlideApp
 import com.wei.traveltaipei.databinding.FragmentAttractionDetailBinding
 import com.wei.traveltaipei.utilities.getFacebookPageURL
 import com.wei.traveltaipei.utilities.isAppInstalled
 import com.wei.traveltaipei.viewmodels.AttractionViewModel
-=======
-import com.alex.cathaybk_recruit_android.GlideApp
-import com.alex.cathaybk_recruit_android.databinding.FragmentAttractionDetailBinding
-import com.alex.cathaybk_recruit_android.utilities.getFacebookPageURL
-import com.alex.cathaybk_recruit_android.utilities.isAppInstalled
-import com.alex.cathaybk_recruit_android.viewmodels.AttractionViewModel
->>>>>>> origin/develop:app/src/main/java/com/alex/cathaybk_recruit_android/ui/AttractionDetailFragment.kt
 
 fun actionToWebViewFragment(url: String, name: String): View.OnClickListener {
     return View.OnClickListener { view ->
