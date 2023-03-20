@@ -95,19 +95,26 @@ class AttractionDetailFragment : Fragment() {
             }
 
             binding.textAttractionName.text = it.name
-            binding.textAttractionName.visibility = if (binding.textAttractionName.text.isNotEmpty()) View.VISIBLE else View.GONE
+            binding.textAttractionName.visibility = if (binding.textAttractionName.text.isNotEmpty())
+                View.VISIBLE else View.GONE
             binding.textIntroduction.text = it.introduction
-            binding.textIntroduction.visibility = if (binding.textIntroduction.text.isNotEmpty()) View.VISIBLE else View.GONE
-            binding.textOpenTime.text = it.open_time
-            binding.textOpenTime.visibility = if (binding.textOpenTime.text.isNotEmpty()) View.VISIBLE else View.GONE
+            binding.textIntroduction.visibility = if (binding.textIntroduction.text.isNotEmpty())
+                View.VISIBLE else View.GONE
+            binding.textOpenTime.text = it.openTime
+            binding.textOpenTime.visibility = if (binding.textOpenTime.text.isNotEmpty())
+                View.VISIBLE else View.GONE
             binding.textAddress.text = "Address\n${it.address}"
-            binding.textAddress.visibility = if (binding.textAddress.text.isNotEmpty()) View.VISIBLE else View.GONE
+            binding.textAddress.visibility = if (binding.textAddress.text.isNotEmpty())
+                View.VISIBLE else View.GONE
             binding.textModified.text = "Last Updated Time\n${it.modified}"
-            binding.textModified.visibility = if (binding.textModified.text.isNotEmpty()) View.VISIBLE else View.GONE
-            binding.btnOfficialSite.visibility = if (it.official_site.isNotEmpty()) View.VISIBLE else View.GONE
-            binding.btnFacebook.visibility = if (it.facebook.isNotEmpty()) View.VISIBLE else View.GONE
+            binding.textModified.visibility = if (binding.textModified.text.isNotEmpty())
+                View.VISIBLE else View.GONE
+            binding.btnOfficialSite.visibility = if (it.officialSite.isNotEmpty())
+                View.VISIBLE else View.GONE
+            binding.btnFacebook.visibility = if (it.facebook.isNotEmpty())
+                View.VISIBLE else View.GONE
 
-            binding.btnOfficialSite.setOnClickListener(actionToWebViewFragment(it.official_site, it.name))
+            binding.btnOfficialSite.setOnClickListener(actionToWebViewFragment(it.officialSite, it.name))
             binding.btnFacebook.setOnClickListener(actionToOpenFbApp(requireContext(), it.facebook, it.name))
         }
     }

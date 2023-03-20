@@ -15,13 +15,13 @@ data class Attraction(
     @SerializedName("name")
     val name: String,
     @SerializedName("name_zh")
-    val name_zh: String?,
+    val nameZh: String?,
     @SerializedName("open_status")
-    val open_status: Int,
+    val openStatus: Int,
     @SerializedName("introduction")
     val introduction: String,
     @SerializedName("open_time")
-    val open_time: String,
+    val openTime: String,
     @SerializedName("zipcode")
     val zipcode: String,
     @SerializedName("distric")
@@ -41,7 +41,7 @@ data class Attraction(
     @SerializedName("elong")
     val elong: Double,
     @SerializedName("official_site")
-    val official_site: String,
+    val officialSite: String,
     @SerializedName("facebook")
     val facebook: String,
     @SerializedName("ticket")

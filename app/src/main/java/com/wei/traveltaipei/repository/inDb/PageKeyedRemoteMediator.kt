@@ -84,7 +84,7 @@ class PageKeyedRemoteMediator(
                     attractionDao.clear()
                     remoteKeyDao.clear()
                 }
-                val keys = response.map { it ->
+                val keys = response.map {
                     AttractionRemoteKey(
                         id = it.id,
                         prevPageKey = prevPage,

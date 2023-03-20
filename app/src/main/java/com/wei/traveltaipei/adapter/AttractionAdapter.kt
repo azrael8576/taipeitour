@@ -13,7 +13,10 @@ import com.wei.traveltaipei.ui.AttractionListFragmentDirections
 import com.wei.traveltaipei.ui.OnClickAttractionListener
 import com.wei.traveltaipei.vo.Attraction
 
-fun actionToAttractionDetailFragment(attraction: Attraction?, onClickAttractionListener: OnClickAttractionListener): View.OnClickListener {
+fun actionToAttractionDetailFragment(
+    attraction: Attraction?,
+    onClickAttractionListener: OnClickAttractionListener
+): View.OnClickListener {
     return View.OnClickListener { view ->
         if (attraction == null) return@OnClickListener
 
@@ -79,7 +82,7 @@ class AttractionAdapter(private val glide: GlideRequests, onClickAttractionListe
             binding.title.visibility = if (binding.title.text.isNotEmpty()) View.VISIBLE else View.GONE
             binding.subtitle.text = attraction?.introduction ?: ""
             binding.subtitle.visibility = if (binding.subtitle.text.isNotEmpty()) View.VISIBLE else View.GONE
-            binding.openTime.text = attraction?.open_time ?: ""
+            binding.openTime.text = attraction?.openTime ?: ""
             binding.openTime.visibility = if (binding.openTime.text.isNotEmpty()) View.VISIBLE else View.GONE
 
             binding.root.setOnClickListener(actionToAttractionDetailFragment(attraction, onClickAttractionListener))

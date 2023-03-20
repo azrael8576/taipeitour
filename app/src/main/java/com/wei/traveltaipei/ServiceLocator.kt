@@ -1,8 +1,9 @@
-package com.wei.traveltaipei.api
+package com.wei.traveltaipei
 
 import android.app.Application
 import android.content.Context
 import androidx.annotation.VisibleForTesting
+import com.wei.traveltaipei.api.TravelTaipeiService
 import com.wei.traveltaipei.db.TravelTaipeiDb
 import com.wei.traveltaipei.repository.AttractionRepository
 import com.wei.traveltaipei.repository.inDb.DbAttractionRepository

@@ -16,7 +16,7 @@ import com.wei.traveltaipei.GlideApp
 import com.wei.traveltaipei.R
 import com.wei.traveltaipei.adapter.AttractionAdapter
 import com.wei.traveltaipei.adapter.AttractionLoadStateAdapter
-import com.wei.traveltaipei.api.ServiceLocator
+import com.wei.traveltaipei.ServiceLocator
 import com.wei.traveltaipei.databinding.FragmentAttractionListBinding
 import com.wei.traveltaipei.paging.asMergedLoadStates
 import com.wei.traveltaipei.repository.AttractionRepository

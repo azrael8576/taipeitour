@@ -9,7 +9,10 @@ import com.wei.traveltaipei.viewmodels.AttractionViewModelFactory
  */
 object InjectorUtils {
 
-    fun provideAttractionViewModelFactory(attractionRepository: AttractionRepository, fragment: Fragment): AttractionViewModelFactory {
+    fun provideAttractionViewModelFactory(
+        attractionRepository: AttractionRepository,
+        fragment: Fragment
+    ): AttractionViewModelFactory {
         return AttractionViewModelFactory(attractionRepository, fragment)
     }
 }

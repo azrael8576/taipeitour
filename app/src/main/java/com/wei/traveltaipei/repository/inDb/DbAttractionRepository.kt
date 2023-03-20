@@ -15,7 +15,10 @@ import kotlinx.coroutines.flow.Flow
  * [androidx.paging.RemoteMediator] to load pages from network when there are no more items cached
  * in the database to load.
  */
-class DbAttractionRepository(val db: TravelTaipeiDb, val travelTaipeiService: TravelTaipeiService) : AttractionRepository {
+class DbAttractionRepository(
+    val db: TravelTaipeiDb,
+    val travelTaipeiService: TravelTaipeiService
+    ) : AttractionRepository {
 
     @OptIn(ExperimentalPagingApi::class)
     override fun getPagingData(lang: String): Flow<PagingData<Attraction>> {

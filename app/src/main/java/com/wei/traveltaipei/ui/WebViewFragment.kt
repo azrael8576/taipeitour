@@ -40,7 +40,7 @@ class WebViewFragment : Fragment() {
             toolbar.title = args.title
 
             if (args.url.isNotEmpty()) {
-                progressbar.max = 100
+                progressbar.max = PROGRESSBAR_MAX
                 progressbar.progress = 1
                 webview.settings.javaScriptEnabled = true
                 webview.webChromeClient = getWebChromeClient()
@@ -96,6 +96,10 @@ class WebViewFragment : Fragment() {
                 binding.progressbar.progress = newProgress
             }
         }
+    }
+
+    companion object {
+        const val PROGRESSBAR_MAX = 100
     }
 
 }
