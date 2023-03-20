@@ -11,11 +11,19 @@ import androidx.paging.PagingDataAdapter
 import androidx.paging.PagingSource
 import androidx.paging.PagingSource.LoadResult.Error
 import androidx.paging.RemoteMediator
+<<<<<<< HEAD:app/src/main/java/com/wei/traveltaipei/paging/LoadStatesMerger.kt
 import com.wei.traveltaipei.paging.MergedState.NOT_LOADING
 import com.wei.traveltaipei.paging.MergedState.REMOTE_ERROR
 import com.wei.traveltaipei.paging.MergedState.REMOTE_STARTED
 import com.wei.traveltaipei.paging.MergedState.SOURCE_ERROR
 import com.wei.traveltaipei.paging.MergedState.SOURCE_LOADING
+=======
+import com.alex.cathaybk_recruit_android.paging.MergedState.NOT_LOADING
+import com.alex.cathaybk_recruit_android.paging.MergedState.REMOTE_ERROR
+import com.alex.cathaybk_recruit_android.paging.MergedState.REMOTE_STARTED
+import com.alex.cathaybk_recruit_android.paging.MergedState.SOURCE_ERROR
+import com.alex.cathaybk_recruit_android.paging.MergedState.SOURCE_LOADING
+>>>>>>> origin/develop:app/src/main/java/com/alex/cathaybk_recruit_android/paging/LoadStatesMerger.kt
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.scan

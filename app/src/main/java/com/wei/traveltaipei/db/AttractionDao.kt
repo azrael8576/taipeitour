@@ -5,7 +5,11 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+<<<<<<< HEAD:app/src/main/java/com/wei/traveltaipei/db/AttractionDao.kt
 import com.wei.traveltaipei.vo.Attraction
+=======
+import com.alex.cathaybk_recruit_android.vo.Attraction
+>>>>>>> origin/develop:app/src/main/java/com/alex/cathaybk_recruit_android/db/AttractionDao.kt
 
 @Dao
 interface AttractionDao {
