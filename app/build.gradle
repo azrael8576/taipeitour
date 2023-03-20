@@ -17,11 +17,11 @@ afterEvaluate{
 }
 
 android {
-    namespace 'com.alex.cathaybk_recruit_android'
+    namespace 'com.wei.traveltaipei'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.alex.cathaybk_recruit_android"
+        applicationId "com.wei.traveltaipei"
         minSdk 23
         targetSdk 32
         versionCode 1

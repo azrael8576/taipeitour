@@ -3,11 +3,11 @@
 
     <style name="Base.Widget.Design.Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">18dp</item>
-        <item name="android:textColor">@color/cathaybk_black</item>
+        <item name="android:textColor">@color/traveltaipei_black</item>
     </style>
 
     <style name="MaterialThemeDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="colorAccent">@color/cathaybk_black</item>
+        <item name="colorAccent">@color/traveltaipei_black</item>
     </style>
 
 </resources>
