@@ -12,14 +12,14 @@
         android:id="@+id/appbar_layout"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="@color/traveltaipei_green_700"
+        android:background="@color/taipeitour_green_700"
         android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="@color/traveltaipei_green_700"
+            app:contentScrim="@color/taipeitour_green_700"
             app:titleEnabled="false"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
@@ -73,7 +73,7 @@
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/traveltaipei_gray_50_a600"
+                    android:textColor="@color/taipeitour_gray_50_a600"
                     android:textSize="@dimen/base_headline"
                     android:visibility="gone"
                     tools:visibility="visible"
@@ -88,7 +88,7 @@
                     android:background="@android:color/transparent"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/form_item_margin"
-                    app:tint="@color/traveltaipei_green_700"
+                    app:tint="@color/taipeitour_green_700"
                     app:srcCompat="@drawable/ic_facebook" />
 
                 <ImageButton
@@ -99,7 +99,7 @@
                     android:background="@android:color/transparent"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/form_item_margin"
-                    app:tint="@color/traveltaipei_green_700"
+                    app:tint="@color/taipeitour_green_700"
                     app:srcCompat="@drawable/ic_homepage" />
 
             </LinearLayout>

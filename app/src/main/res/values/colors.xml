@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="traveltaipei_black">#de000000</color>
-    <color name="traveltaipei_gray_50">#F6F6F6</color>
-    <color name="traveltaipei_gray_50_a600">#363F3B</color>
-    <color name="traveltaipei_green_300">#f7ffff</color>
-    <color name="traveltaipei_green_500">#E3F9F9</color>
-    <color name="traveltaipei_green_700">#82ede7</color>
-    <color name="traveltaipei_green_900">#4EB0AA</color>
-    <color name="traveltaipei_white">#FFFFFF</color>
-    <color name="traveltaipei_yellow_300">#f8f99f</color>
-    <color name="traveltaipei_yellow_500">#ffff63</color>
+    <color name="taipeitour_black">#de000000</color>
+    <color name="taipeitour_gray_50">#F6F6F6</color>
+    <color name="taipeitour_gray_50_a600">#363F3B</color>
+    <color name="taipeitour_green_300">#f7ffff</color>
+    <color name="taipeitour_green_500">#E3F9F9</color>
+    <color name="taipeitour_green_700">#82ede7</color>
+    <color name="taipeitour_green_900">#4EB0AA</color>
+    <color name="taipeitour_white">#FFFFFF</color>
+    <color name="taipeitour_yellow_300">#f8f99f</color>
+    <color name="taipeitour_yellow_500">#ffff63</color>
 </resources>

@@ -2,29 +2,29 @@
     <!-- Base application theme. -->
 
     <!-- To see how these attributes are used, please visit https://material.io/develop/android/theming/color/ -->
-    <style name="Base.Theme.TravelTaipei" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/traveltaipei_white</item>
-        <item name="colorPrimaryVariant">@color/traveltaipei_gray_50</item>
-        <item name="colorOnPrimary">@color/traveltaipei_white</item>
-        <item name="colorPrimaryDark">@color/traveltaipei_green_900</item>
-        <item name="colorOnSurface">@color/traveltaipei_black</item>
-        <item name="colorAccent">@color/traveltaipei_gray_50</item>
-        <item name="colorSurface">@color/traveltaipei_black</item>
-        <item name="colorSecondary">@color/traveltaipei_black</item>
-        <item name="android:colorBackground">@color/traveltaipei_white</item>
+    <style name="Base.Theme.TaipeiTour" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/taipeitour_white</item>
+        <item name="colorPrimaryVariant">@color/taipeitour_gray_50</item>
+        <item name="colorOnPrimary">@color/taipeitour_white</item>
+        <item name="colorPrimaryDark">@color/taipeitour_green_900</item>
+        <item name="colorOnSurface">@color/taipeitour_black</item>
+        <item name="colorAccent">@color/taipeitour_gray_50</item>
+        <item name="colorSurface">@color/taipeitour_black</item>
+        <item name="colorSecondary">@color/taipeitour_black</item>
+        <item name="android:colorBackground">@color/taipeitour_white</item>
     </style>
 
-    <style name="Theme.TravelTaipei" parent="Base.Theme.TravelTaipei"/>
+    <style name="Theme.TaipeiTour" parent="Base.Theme.TaipeiTour"/>
 
-    <style name="Theme.TravelTaipei.NoActionBar">
+    <style name="Theme.TaipeiTour.NoActionBar">
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="windowActionBarOverlay">true</item>
     </style>
 
-    <style name="Theme.TravelTaipei.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
+    <style name="Theme.TaipeiTour.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
 
-    <style name="TextAppearance.TravelTaipei.Toolbar.Text" parent="TextAppearance.MaterialComponents.Headline5" >
+    <style name="TextAppearance.TaipeiTour.Toolbar.Text" parent="TextAppearance.MaterialComponents.Headline5" >
         <item name="android:textColor">?attr/colorOnSurface</item>
     </style>
 

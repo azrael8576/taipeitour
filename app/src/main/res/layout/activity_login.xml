@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/traveltaipei_green_900"
+    android:background="@color/taipeitour_green_900"
     tools:context=".ui.LoginActivity">
 
     <TextView

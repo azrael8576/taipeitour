@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:maxLines="2"
             android:ellipsize="end"
-            android:textColor="@color/traveltaipei_gray_50_a600"
+            android:textColor="@color/taipeitour_gray_50_a600"
             android:textSize="@dimen/base_headline"
             android:visibility="gone"
             tools:visibility="visible"
